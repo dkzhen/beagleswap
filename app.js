@@ -4,7 +4,7 @@ const fs = require("fs");
 dotenv.config();
 const { ethers } = require("ethers");
 
-const provider = new ethers.providers.JsonRpcProvider(process.env.PROVIDER);
+const provider = new ethers.providers.JsonRpcProvider(process.env.PROVIDER_BASE);
 
 async function executeClaimAndMint() {
   // Set up the signer (e.g., using a private key)

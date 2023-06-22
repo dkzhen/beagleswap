@@ -4,7 +4,7 @@ const fs = require("fs");
 dotenv.config();
 const { ethers } = require("ethers");
 
-const provider = new ethers.providers.JsonRpcProvider(process.env.PROVIDER);
+const provider = new ethers.providers.JsonRpcProvider(process.env.PROVIDER_LINEA);
 
 async function executeClaimAndMint() {
   // Set up the signer (e.g., using a private key)
@@ -25,7 +25,7 @@ async function executeClaimAndMint() {
     // Execute claim function
     try {
       const time = "20";
-      const claimTransaction = await contract.claimTokens();
+      const claimTransaction = await contract.claim();
       await claimTransaction.wait();
       console.log(
         `Claim successful for contract at address ${contractAddress} - Transaction Hash: ${claimTransaction.hash}`
@@ -41,7 +41,7 @@ async function executeClaimAndMint() {
     const mintAmount = ethers.utils.parseUnits("2000", 18); // Mint 2000 tokens (adjust the decimals if necessary)
 
     try {
-      const mintTransaction = await contract.withdraw();
+      const mintTransaction = await contract.mint();
       await mintTransaction.wait();
       console.log(
         `Mint successful for contract at address ${contractAddress} - Transaction Hash: ${mintTransaction.hash}`

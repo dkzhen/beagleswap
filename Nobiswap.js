@@ -41,7 +41,7 @@ async function executeClaimAndMint() {
     const mintAmount = ethers.utils.parseUnits("2000", 18); // Mint 2000 tokens (adjust the decimals if necessary)
 
     try {
-      const mintTransaction = await contract.withdraw(mintAmount);
+      const mintTransaction = await contract.withdraw();
       await mintTransaction.wait();
       console.log(
         `Mint successful for contract at address ${contractAddress} - Transaction Hash: ${mintTransaction.hash}`

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node app"
+    "dev": "node app", 
+    "nobiswap": "node Nobiswap"
   },
   "keywords": [],
   "author": "",
